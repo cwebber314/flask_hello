@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <h2>Dynamic Form</h2>
+<p> This is an example of a form generated from a python list.</p>
+  <form action="{{ url_for('test') }}" method=post>
+    {{ form.hidden_tag() }}
+
+    {% for name in field_names %}
+    <p>
+      {{ form[name].label }}
+      {{ form[name] }}
+    </p>
+    {% endfor %}
+
+    {{ form.submit }}
+  </form>
+{% endblock %}

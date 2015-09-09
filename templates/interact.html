@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <h2>Interactive Form</h2>
+<p>Have the form change based on user action.</p>
+  <form action="{{ url_for('interact') }}" method=post>
+    {{ form.hidden_tag() }}
+
+    {% for name in field_names %}
+    <p>
+      {{ form[name].label }}
+      {{ form[name] }}
+    </p>
+    {% endfor %}
+
+    {{ form.submit }}
+  </form>
+{% endblock %}
